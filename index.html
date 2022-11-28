@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Deep clone Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+    <style type="text/css">
+      #test-runner {
+        padding: 10px 5px; 
+        background-color: #1da1f2; 
+        color: #fff; 
+        border-radius: 3px;
+        width: 120px;
+        cursor: pointer;
+        border: 1px solid #1da1f2;
+      }
+
+      a {
+        display: inline-block; 
+        margin-left: 10px; 
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align:center; margin: 15px;">
+      <button id="test-runner">Run tests</button>
+
+      <a href="./deep-clone.js" target="_blank">View function source (deep-clone.js)</a>
+      <a href="./deep-clone.test.js" target="_blank">View test source (deep-clone.test.js)</a>
+    </div>
+    <div id="mocha" style="margin:auto; width: 850px;"></div>
+
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script src="deep-clone.js"></script>
+    <script class="mocha-init">
+      mocha.setup('bdd');
+      mocha.checkLeaks();
+    </script>
+    <script src="deep-clone.test.js"></script>
+    <script class="mocha-exec">
+      document.getElementById('test-runner').addEventListener('click', function(e) {
+        e.preventDefault();
+        mocha.run();
+      });
+      //mocha.run();
+    </script>
+  </body>
+</html>
